@@ -1,0 +1,1 @@
+An experimental Microservice for running [Traefik](http://traefik.io) on Kubernetes using a ConfigMap to store the mapping rules

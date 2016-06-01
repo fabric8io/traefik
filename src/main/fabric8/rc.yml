@@ -1,0 +1,29 @@
+spec:
+  replicas: 1
+  template:
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: traefik
+            items:
+            - key: rules
+              path: rules.toml
+      containers:
+        - image: fabric8/traefik
+          volumeMounts:
+            - name: config
+              mountPath: /config
+          ports:
+          - containerPort: 80
+            name: "http"
+          - containerPort: 8080
+            name: "admin"
+          env:
+            - name: KUBERNETES_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.namespace
+      serviceAccount: traefik
+

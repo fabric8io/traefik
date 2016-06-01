@@ -1,0 +1,21 @@
+metadata:
+  name: traefik
+data:
+  rules: |-
+    [backends]
+      [backends.backend1]
+        [backends.backend1.servers.server1]
+        url = "http://nexus:80"
+        weight = 90
+      [backends.backend2]
+        [backends.backend2.servers.server1]
+        url = "http://jenkins:80"
+        weight = 10
+
+    [frontends]
+      [frontends.frontend1]
+      backend = "backend1"
+        rule = "Host: localhost"
+      [frontends.frontend2]
+      backend = "backend1"
+        rule = "Host: localhost"
