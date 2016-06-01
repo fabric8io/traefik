@@ -173,13 +173,13 @@ logLevel = "DEBUG"
 # Enable web configuration backend
 #
 # Optional
-#
-# [web]
+
+[web]
 
 # Web administration port
 #
 # Required
-#
+
 address = ":8080"
 
 # SSL certificate and key used
@@ -203,7 +203,8 @@ address = ":8080"
 #
 # Optional
 #
-# [file]
+
+[file]
 
 # Rules file
 # If defined, traefik will load rules from this file,
@@ -230,7 +231,7 @@ watch = true
 #
 # Optional
 #
-[kubernetes]
+# [kubernetes]
 
 # Kubernetes server endpoint
 #
@@ -242,8 +243,8 @@ watch = true
 # 
 # Optional
 #
-
-endpoint = "http://localhost:8080"
+#
+# endpoint = "http://localhost:8080"
 
 # namespaces = ["default"]
 
